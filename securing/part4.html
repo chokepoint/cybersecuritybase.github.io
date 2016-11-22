@@ -286,7 +286,7 @@
 	
 	<h3>Smart fuzzers</h3>
 	
-	<p>If mutation-based fuzzing was called dumb-fuzzing, the generation-based fuzzing is called the intelligent fuzzing. In generation-based fuzzing the input is created from scratch based on the used specification or input format of the targeted application or protocol. The input creation is then split into chunks, which are built in order and independetly. Randomness is introduced inside the chunks. This way the inputs are not completely groken but contain some fuzzed parts. How to split the inputs into chunks is usually defined by the input format, e.g, fields such as key-value pairs etc. make good split points for chunks.</p>
+	<p>If mutation-based fuzzing was called dumb-fuzzing, the generation-based fuzzing is called the intelligent fuzzing. In generation-based fuzzing the input is created from scratch based on the used specification or input format of the targeted application or protocol. The input creation is then split into chunks, which are built in order and independetly. Randomness is introduced inside the chunks. This way the inputs are not completely broken but contain some fuzzed parts. How to split the inputs into chunks is usually defined by the input format, e.g, fields such as key-value pairs etc. make good split points for chunks.</p>
 
 	<p>Evolutionary-based fuzzing is basically the same as the mutation-based above but it adds heuristics to the fuzzing which change the fuzzing on every iteration. These fuzzer would look what the previous attempts did and change the behaviour so that more parts of the code would be covered. These kinds of fuzzers need compile-time instrumentation which adds instructions to the source code of the targeted application that will allow monitoring of how the input changed the execution path inside the application. Sometimes this kind of fuzzing is called Instrumented fuzzing.</p>
 	
@@ -332,7 +332,7 @@
 	  <li>Start over again</li>
 	</ul>
 	
-	<p>About the gathering of the sample file set, one could get by with generating the samples out of thin air randomly. However, better results can be gotten with a set of sampels to start from. The samples should represent the features of the format to be fuzzed. In case of network protocols captures of the real traffic are goof starting points (with tools such as <a href="http://wwww.wireshark.org">wireshark</a> or <a href="http://www.tcpdump.org">tcpdump</a>). Sometimes just random files from the web will do. For example, bunch of available PDFs from the web for testing PDF tools or images of corn from the web to test image conversion tools.</p>
+	<p>About the gathering of the sample file set, one could get by with generating the samples out of thin air randomly. However, better results can be gotten with a set of samples to start from. The samples should represent the features of the format to be fuzzed. In case of network protocols captures of the real traffic are good starting points (with tools such as <a href="http://wwww.wireshark.org">wireshark</a> or <a href="http://www.tcpdump.org">tcpdump</a>). Sometimes just random files from the web will do. For example, bunch of available PDFs from the web for testing PDF tools or images of corn from the web to test image conversion tools.</p>
 	
 	<p>There are many and many more fuzzers in existense. They basically do the same thing but under the hood they differ from each other. Some mutate the inputs using Burrows-Wheeler transformation and others permutate the content around the edges of common substrings, etc.</p>
 	
@@ -353,7 +353,7 @@
 cd radamsa; make
 bin/radamsa --help</pre>
 
-	<p>To get the radamsa to produce fuzzed output is rather simple. In the following example a string is piped to radamsa and radamsa prints out the mutated version. Creating the samples one by one is daunting. Lookily radamsa gives <i>-n</i> option so one can define how many samples it should create.</p>
+	<p>To get the radamsa to produce fuzzed output is rather simple. In the following example a string is piped to radamsa and radamsa prints out the mutated version. Creating the samples one by one is daunting. Luckily radamsa gives <i>-n</i> option so one can define how many samples it should create.</p>
 
 <pre>[user@laptop ~]$ echo "Cyber Security Base 101" | ./radamsa
 Cyber Sectrity Base 1701 1
@@ -433,7 +433,7 @@ done</pre>
 
 	<h3>BURP suite</h3>
 	
-	<p>This far this part of the course has concentrated on low level tools for application security testing. Now it is time to introduce the first security testing platform for security testing of web applications. It actually is a collection of tools that work together to creaete the tests. It covers tests for mapping and analysis of the vulnerabilities and even for exploiting them. Burp Suite can easily be extended with plugins such as Bradamsa (radamsa for burp Suite).</p>
+	<p>This far this part of the course has concentrated on low level tools for application security testing. Now it is time to introduce the first security testing platform for security testing of web applications. It actually is a collection of tools that work together to create the tests. It covers tests for mapping and analysis of the vulnerabilities and even for exploiting them. Burp Suite can easily be extended with plugins such as Bradamsa (radamsa for burp Suite).</p>
 
 	<p>Burp suite can act as a proxy between the browser and target application and intercept and modify the traffic between them. It also contains tools such as a spider for crawling content and functionality, scanner for automatic detection of known vulnerabilities, an intruder that can be used to perform customized attacks. Here we look a bit into the proxy tool and how it works. As the last thing in this tools section we look a little into the intruder tool and specifically its sniper mode with bradamsa.</p>
 
